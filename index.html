@@ -1,0 +1,143 @@
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css" type="text/css">
+	<meta charset="utf-8">
+	<script src="heatmap.min.js"></script>
+	<script src="server.requests.js"></script>
+	<script src="interface.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="xolor.umd.js"></script>
+<style>
+
+</style>
+</head>
+<body>
+<script type="text/javascript">
+window.onload = function(){
+        start();
+}
+</script>
+	<div id="real-hint-1" class="real-hint">
+		<div class="prm-cross"></div>
+		<div class = "hint-text"></div>
+	</div>
+	<div id="real-hint-2" class="real-hint">
+		<div class="prm-cross"></div>
+		<div class = "hint-text"></div>
+	</div>
+	<div class = "login-holder">
+		<table>
+			<tr>
+				<td class="label-td"><label class="simple" >API location</label></td>
+				<td><label class="small-l" >http://</label></td>
+				<td id="input_ip"><input type="textfield" id="address"  title="ff" value = ""></input></td>
+				<td><label class="small-r" >/zabbix/api_jsonrpc.php</label></td>
+			</tr>
+			<tr>
+				<td class="label-td"><label class="simple" >User name</label></td>
+				<td colspan = '3'><input type="textfield" id="user"  value=""></input></td>
+			</tr>
+			<tr>
+				<td class="label-td"><label class="simple" >Password</label></td>
+				<td colspan = '3'><input type="password" id="password"  value=""></input></td>
+			</tr>
+			<tr>
+				<td id = "submit_sets" colspan = '4'>
+					<input class="button-like fill-in" value="Default" type="button">
+					<input class="button-like sets-but" value="Ok" type="button">
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class = "holder">
+		<div class = 'togSet'>
+
+			<div id="hidSet">
+				<input type="button" class = "button-like" id="hidBut" value="Menu">
+			</div>
+
+			<div class = 'set_firstpart'>
+				<div class = 'put_together'>
+					<div id="DynamicExtraFieldsContainer">
+
+						<div id="addDynamicField">
+							<input type="button" class = "button-like" id="addDynamicExtraFieldButton" value="Add device">
+						</div>
+
+						<div class = 'browse-field'>
+							<form id ="form" action="ajaxupload.php" method="post"  enctype="multipart/form-data">
+								<label type="button" for = "uploadImage" class ='button-like'>Browse</label>
+								<input type="file" id = "uploadImage" class="userfile button-like" name="image"></input>
+							</form>
+						</div>
+
+						<div class="DynamicExtraField">
+							<div class = 'dev-nam'>
+								<div class = 'lab_tex'>
+									<div class = 'lab'>
+										<label>Device name</label>
+									</div>
+
+									<div class = "tex">
+										<input type="textfield" name="DynamicDev[]"  title=""></input>
+									</div>
+								</div>
+							</div>
+
+							<div class = 'graph-nam'>
+								<div class = 'lab_tex'>
+
+									<div class = 'lab'>
+										<label>Graph name</label>
+									</div>
+
+									<div class = "tex">
+										<input type="textfield" name="DynamicGraph[]" cols="50"></input>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="del_but">
+								<input value="Place" type="button" data-hint="#real-hint-2" class="button-like AddDevice"/>
+								<input value="Delete" type="button" class="button-like DeleteDynamicExtraField"/>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="toggle contain-block">
+						<div id="err"></div>
+						<div id="preview"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class = "map_holder" style = "position: absolute;top:0px;right:0;display:inline-block;">
+			<div class="mapsDiv">
+
+				<div class= "par_id" style = "top:0px;display:inline-block;">
+					<div class = "max_val" style = "position:relative; top:0"></div>
+					<div class = "info_map" style = "position:relative"></div>
+					<div class = "min_val" style = "position:relative;bottom:0;"></div>
+				</div>
+
+				<div class="htmap"  data-hint="#real-hint-1" style = " top: 0px; ">
+					<div class = "imdiv"></div>
+					<div class = "canvdiv">
+						<canvas id = "myCanvas" ></canvas>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+
+

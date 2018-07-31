@@ -7,3 +7,5 @@ Devices and technologies:
   - For web interface: jquery-3.3.1.min, xolor.umd, heatmap.min
   
 The system collects the data from temperature sensors of placed in the room devices (Intel Edison). The web application provides the real-time visualization of the data.  
+
+If Server is unreachable / Host or Graph not found / etc. – the Interface will generate random values instead of real temperature.

@@ -16,12 +16,26 @@ function get_json(request){
 
 function send_request(device, item_name, number){
     var t;
+
+    var request = {
+        "jsonrpc": "2.0",
+        "method": "user.login",
+        "params": {
+            "user": user,
+            "password": pass
+        },
+        "id": 1,
+        "auth": null
+    };
+
+    key = get_json(request);
+
     if (key == undefined){
-        if (number < 0){// heatmapInstance.data.length){
+        if (number < 0){
             t = (20 * Math.random()) + 15;
         }
         else {
-            var t = heatmapInstance.data[number].value;
+            t = heatmapInstance.data[number].value;
             var d_t = 10*g.next();
             t = (t + d_t)%20 + 15;
         }

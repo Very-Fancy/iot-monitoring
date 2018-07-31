@@ -92,18 +92,7 @@
         zurl = "http://" + $('#address').get(0).value + "/zabbix/api_jsonrpc.php";
         pass = $('#password').get(0).value;
         user = $('#user').get(0).value;
-        var request = {
-            "jsonrpc": "2.0",
-            "method": "user.login",
-            "params": {
-                "user": user,
-                "password": pass
-            },
-            "id": 1,
-            "auth": null
-        };
 
-        key = get_json(request);
         return false;
     });
 
